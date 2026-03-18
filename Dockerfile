@@ -1,0 +1,6 @@
+FROM grafana/grafana-enterprise:10.0.3-ubuntu
+
+ENV GF_USERS_DEFAULT_THEME=light
+ENV GF_SECURITY_ADMIN_PASSWORD=admin123
+
+EXPOSE 3000
