@@ -1,15 +1,18 @@
-[build]
-  image="grafana/grafana-enterprise:10.0.3-ubuntu"
+services:
+  - type: web
+    name: grafana
+    env: docker
+    plan: free
 
-[env]
-  GF_USERS_DEFAULT_THEME="light"
+    dockerfilePath: ./Dockerfile
 
-[mounts]
-  source="grafana_data"
-  destination="/var/lib/grafana"
+    envVars:
+      - key: GF_USERS_DEFAULT_THEME
+        value: light
+      - key: GF_SECURITY_ADMIN_PASSWORD
+        value: admin123
 
-[http_service]
-  internal_port = 3000
-  force_https = true
-  auto_stop_machines = false
-  auto_start_machines = false
+    disk:
+      name: grafana-data
+      mountPath: /var/lib/grafana
+      sizeGB: 1
