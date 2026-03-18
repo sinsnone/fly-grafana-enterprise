@@ -11,8 +11,3 @@ services:
         value: light
       - key: GF_SECURITY_ADMIN_PASSWORD
         value: admin123
-
-    disk:
-      name: grafana-data
-      mountPath: /var/lib/grafana
-      sizeGB: 1
